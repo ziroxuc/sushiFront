@@ -1,0 +1,114 @@
+
+ /* -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5)*/
+
+/*!
+ * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+h4{
+    font-size: 17px;
+}
+
+.caption p{
+    font-size: 16px;
+}
+
+.caption p{
+    font-size: 13px;
+}
+            
+@media (max-width: 575px) {
+
+  h4{
+    font-size: 20px;
+}
+
+.caption p{
+    font-size: 18px;
+}
+            
+}
+
+.boton-menu{
+    bottom:auto;
+  
+    
+}
+
+.tarjeta{
+    margin: 5px;
+  
+}
+ 
+img.menu{
+  width: 150; height: 200px;
+}
+
+.titulo-menu{
+    text-align: left;
+    font: oblique bold 110% cursive;
+}
+
+.caption {
+    height: 150px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail img:hover {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(30%);
+    cursor: pointer;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+    height: 20em;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+.btn-addCarrito-right {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    padding-top: 0px;
+    margin-bottom: 0;
+    outline:none;
+}
+.titulo-modal{
+    text-align: center;
+    font: oblique bold 150% cursive;
+    color: #1C1C1C;
+    font-weight: bold;
+}
+.detalle-modal{
+    text-align: left;
+    font: oblique bold 110% cursive;
+    color: #424242;
+}
+

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+       </button>
+                <!-- El html del modal se encuentra en carro de compras.html -->
+                <button (click)="openModalOrdenPedido()" type="button" class="btn btn-link nav-carro">
+                <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> 
+                <span class="badge red-badge">{{ccService.getCantidadCarro()}}</span>
+                </button>
+
+
+        <a class="navbar-brand" href="index.html">{{nombreApp}}</a>
+        
+        <div>
+        
+
+        </div>
+    
+    
+    </div>
+
+
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <app-sidebar></app-sidebar>
+    <!-- /.navbar-collapse -->
+</nav>

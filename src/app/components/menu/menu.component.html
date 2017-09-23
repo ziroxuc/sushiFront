@@ -1,0 +1,93 @@
+<div id="page-wrapper">
+
+  <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row">
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+        <div class="row">
+
+          <div *ngFor="let sushi of productosService.productos; let i = index" class="col-sm-6 col-lg-6 col-md-6">
+            
+          <div class="thumbnail" >
+            <img [src]="sushi.img" alt="" class="menu" (click)="openModaldetalle(sushi)">
+            <div class="caption">
+              <h5 class="titulo-menu">{{sushi.nombre | uppercase}}</h5>
+              <p class="titulo-menu"><i class="fa fa-usd" aria-hidden="true"></i>{{sushi.precio | number:'3.0-0'}}</p>
+              <button (click)="ccService.addCarrito(sushi)" type="button" class="btn btn-link btn-addCarrito-right">
+                <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></button>
+            </div>
+          </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!--   Sidebar Widgets Column -->
+  <div class="col-md-4">
+
+    <!--  <li *ngFor="let prodAdded of productsAdded"
+              class="list-group-item">{{prodAdded.nombre}}<p class="pull-right">{{prodAdded.precio}}</p></li>
+        -->
+
+    <app-carro-compras></app-carro-compras>
+
+
+
+  </div>
+</div>
+<!-- /.row -->
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+
+
+<!-- Modal -->
+<div *ngIf="item != null">
+        <div class="modal fade" id="ModalDetalle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                <h1 class="modal-title titulo-modal" id="exampleModalLabel"> {{item.nombre | uppercase}}</h1>
+
+              </div>
+              <div class="modal-body">
+
+                <div class="row">
+
+                  <div class="col-md-6">
+
+                    <img [src]="item.img" class="img-fluid" alt="...">
+
+
+                  </div>
+                  <div class="col-md-6 detalle-modal">
+                    
+                    <h3><i class="fa fa-usd" aria-hidden="true"></i> <b>{{item.precio | number:'3.0-0'}}</b></h3>
+                    <h3>Piezas: 8</h3>
+                    <p>{{item.descripcion}}</p>
+
+                  </div>
+
+                </div>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" (click)="ccService.addCarrito(item)">
+                  Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>

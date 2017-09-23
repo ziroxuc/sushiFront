@@ -1,0 +1,14 @@
+.nav-carro{
+    position: absolute;
+    left: 130px;
+    top: 10px;
+    padding-top: 0px;
+    margin-bottom: 0;
+    outline:none;
+    color:#6E6E6E;
+    
+}
+.red-badge{
+    color:white;
+    background-color: red;
+}

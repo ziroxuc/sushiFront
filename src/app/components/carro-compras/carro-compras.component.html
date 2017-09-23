@@ -1,0 +1,186 @@
+<div class="panel panel-default" id="menu-carro-compra">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-shopping-cart  fa-1x" aria-hidden="true"></i> Carrito de compras </h3>
+  </div>
+  <div class="panel-body">
+
+    <div *ngFor="let prodAdded of productsAdded; let i = index" class="row border-bajo">
+
+      <div class="col-md-12 margen-top">
+        <b>{{prodAdded.nombre}}</b>
+
+        <p class="pull-right"><button (click)="ccService.deleteCarrito(i,prodAdded)" type="button" class="btn btn-link btn-danger">
+                Eliminar</button></p>
+
+      </div>
+      <div class="col-sm-12">
+        <i class="fa fa-usd" aria-hidden="true"></i> {{prodAdded.precio | number:'3.0-0'}}
+
+        <p class="pull-right"></p>
+
+
+
+        <p class="pull-right">
+
+          <button (click)="ccService.agregaOrestaItem(true,prodAdded)" type="button" class="btn btn-link botones">
+                <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></button> {{prodAdded.cantidad}}
+
+          <button (click)="ccService.agregaOrestaItem(false,prodAdded)" type="button" class="btn btn-link botones">
+                <i class="fa fa-minus-circle fa-2x" aria-hidden="true"></i></button>
+
+        </p>
+      </div>
+
+    </div>
+
+
+
+    <br>
+    <div class="row">
+      <div class="col-md-12" *ngIf="ccService.getSumaTotal() == 0">
+        <div class="alert alert-danger" role="alert">No hay elementos en su Carrito</div>
+      </div>
+      <div class="col-md-12" *ngIf="ccService.getSumaTotal() > 0">
+
+        <b>Total</b> : <i class="fa fa-usd" aria-hidden="true"></i> {{ccService.getSumaTotal() | number:'3.0-0'}}
+        <p class="pull-right"> <button type="button" class="btn btn-success btn-sm" (click)="openModalOrdenPedido()">
+                                Ordenar!
+                            </button></p>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ModalOrdenPedido" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-shopping-cart  fa-1x" aria-hidden="true"></i> Carrito de compras </h3>
+
+
+          </div>
+          <div class="panel-body">
+
+            <div *ngFor="let prodAdded of productsAdded; let i = index" class="row border-bajo">
+
+              <div class="col-md-12 margen-top">
+                <b>{{prodAdded.nombre}}</b>
+
+                <p class="pull-right"><button (click)="ccService.deleteCarrito(i,prodAdded)" type="button" class="btn btn-link btn-danger">
+                Eliminar</button></p>
+
+              </div>
+              <div class="col-sm-12">
+                <i class="fa fa-usd" aria-hidden="true"></i> {{prodAdded.precio | number:'3.0-0'}}
+
+                <p class="pull-right"></p>
+
+                <p class="pull-right addings">
+
+                  <button (click)="ccService.agregaOrestaItem(true,prodAdded)" type="button" class="btn btn-link botones">
+                <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></button> {{prodAdded.cantidad}}
+
+                  <button (click)="ccService.agregaOrestaItem(false,prodAdded)" type="button" class="btn btn-link botones">
+                <i class="fa fa-minus-circle fa-2x" aria-hidden="true"></i></button>
+
+                </p>
+              </div>
+
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-md-12" *ngIf="ccService.getSumaTotal() == 0">
+                <div class="alert alert-danger" role="alert">No hay elementos en su Carrito</div>
+              </div>
+              <div class="col-md-12" *ngIf="ccService.getSumaTotal() > 0">
+
+                <b>Total</b> : <i class="fa fa-usd" aria-hidden="true"></i> {{ccService.getSumaTotal() | number:'3.0-0'}}
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="openModalDatosUsuario()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal de ingreso de datos de usuario -->
+
+
+<div class="modal fade" id="ModalDatosCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+
+        <div class="panel panel-default">
+
+          <div class="panel-heading">
+
+            <h3 class="panel-title"><i class="fa fa-user fa-1x" aria-hidden="true"></i> Datos Personales </h3>
+
+
+          </div>
+          <div class="panel-body">
+
+            <form [formGroup]="forma" (ngSubmit)="guardarDatosUser()" novalidate="novalidate">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" class="form-control" id="nombre" 
+                placeholder="Ingrese su Nombre" name="nombre"  formControlName="nombre">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Correo</label>
+                <input type="email" class="form-control" id="correo" 
+                placeholder="Correo electronico" name="correo" formControlName="correo">
+              </div>
+              <label for="exampleInputEmail1">Direccion</label>
+              <input type="text" class="form-control" id="direccion" 
+              placeholder="Direccion" name="direccion"  formControlName="direccion">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Telefono</label>
+                <input type="text" class="form-control" id="telefono"
+                 placeholder="Telefono" name="telefono"  formControlName="telefono">
+              </div>
+              <div class="form-group">
+                <label for="observacion">Observaciones</label>
+                <textarea class="form-control" id="Observacion"
+                 rows="3" name="observacion"  formControlName="observacion"></textarea>
+              </div>
+
+
+              <button type="submit" class="btn btn-primary">submit!</button>
+
+            </form>
+          </div>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="ccService.generarPedido(ccService.carroCompra,ccService.getSumaTotal())">Ordenar!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+
+table tr td{
+    border:0px!important;
+}
+
+.border-bajo{
+    border-bottom: 1px #E6E6E6 solid;
+}
+
+.btn-link {
+    padding: 0px;
+}
+
+.botones{
+    padding: 0px;
+    margin-top: -5px;
+    color: #585858;
+    outline:none;
+}
+.margen-top{
+    margin-top: 5px;
+}
+
+
+@media (max-width: 768px) {
+
+  .addings{
+    margin-top: -15px;
+    margin-left: 70%;
+    
+}
+
+@media (max-width: 990px) {
+#menu-carro-compra {
+    display: none !important;
+    
+    }
+}
+
+
+
+}
